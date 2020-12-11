@@ -1,0 +1,81 @@
+body {
+    height: 100vh;
+    background: #885A89;
+    font-family: 'poppins', Arial;
+    margin: 0;
+    display: grid;
+    place-content: center;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    width: 62%;
+    background: #CBCBD4;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: -7;
+}
+
+/* This is a standard way of doing this. You put position:relative on the parent and content:'' + position:aboslute on your pseudo-selectors */
+
+.card {
+    width: 30%;
+    margin: 0 auto;
+    min-width: 500px;
+    padding: 3em;
+    cursor: pointer;
+    position: relative;
+}
+
+/* pseudo-selectors */
+.card::before, .card::after {
+    content: '';
+    position: absolute;
+    height: 300px;
+    width: 34%;
+    background: #D1B490;
+    top: 0;
+    right: 0;
+    z-index: -2;
+}
+
+h1 {
+    margin: 0;
+}
+
+.card::after {
+    width: 0;
+    background: #863e0d;
+    left: 0;
+    z-index: -1;
+}
+
+/* The clip-path:circle allows you to animate the p element. We have it set to 0% now and then we will increase it to 100% when animating. */
+
+p {
+    clip-path: circle(0% at 100% 0);
+    color: white;
+    font-size: .9em;
+    line-height: 1.6em;
+    margin: 0;
+    padding: 1.5em 0 0 3em;
+    position: relative;
+    transform: translateX(20px);
+}
+
+p::before {
+    content: '';
+    position: absolute;
+    height: 80%;
+    top: 2em;
+    left: 0;
+    width: 3px;
+    background: #CBCBD4;
+}
+
+
+
+
+
